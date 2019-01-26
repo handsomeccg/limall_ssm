@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用Ajax以json方式提交数据</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<form>
+    id:<input type="text" id="id" value="123" />
+    名称:<input type="text" id="name" value="category xxx"><br/>
+    <input type="button" value="提交" id="sender">
+</form>
+<div id="messageDiv">
+    <script>
+        $('#sender').click(function(){
+            var id=document.getElementById('id').value;
+            var name=document.getElementById('name').value;
+            var category={"name":name,"id":id};
+            var jsonData = JSON.stringify(category);
+            var page="submitCategory";
+
+            $.ajax({
+                type:"post",
+                url:page,
+                data:jsonData,
+                dataType:"json",
+                contentType:"application/json;charset=UTF-8",
+                success: function (result) {
+                }
+            });
+            console.log(jsonData);
+            alert("提交成功，请在Tomcat控制台查看服务端接收到的数据");
+        })
+    </script>
+</div>
+</body>
+</html>

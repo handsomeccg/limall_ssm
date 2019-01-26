@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="limall_ssm:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="limall_ssm.war">
+      <element id="artifact" artifact-name="limall_ssm:war exploded" />
+    </root>
+  </artifact>
+</component>

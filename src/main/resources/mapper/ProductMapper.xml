@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zyf.limall.mapper.ProductMapper">
+    <select id="list" resultType="Product">
+    select * from product where cid = #{cid}
+</select>
+    <select id="listAll" resultType="Product">
+    select * from product
+</select>
+    <select id="listKeyword" resultType="Product">
+    select * from product where name like concat('%',#{keyword},'%')
+</select>
+
+    <insert id="add"  keyProperty="id"  useGeneratedKeys="true" parameterType="Product" >
+        insert into product ( name, subTitle, originalPrice, promotePrice, stock, cid ) values (#{name} ,
+        #{subTitle} ,#{originalPrice} ,#{promotePrice} ,#{stock} ,#{cid})
+    </insert>
+
+    <delete id="delete">
+        delete from product where id= #{id}
+    </delete>
+
+    <select id="get" resultType="Product">
+        select * from product where id = #{id}
+    </select>
+
+    <update id="update" parameterType="Product">
+        update product set name=#{name},subTitle=#{subTitle},originalPrice=#{originalPrice},
+        promotePrice=#{promotePrice},stock=#{stock} where id = #{id}
+    </update>
+</mapper>

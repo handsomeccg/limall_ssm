@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zyf.limall.mapper.OrderMapper">
+    <select id="list" resultType="Order">
+    select * from `order`
+</select>
+    <select id="listByUid" resultType="Order">
+    select * from `order` where uid= #{uid} order by id desc
+</select>
+
+    <insert id="add"  keyProperty="id"  useGeneratedKeys="true" parameterType="Order" >
+        insert into `order` ( orderCode, address, post, receiver, mobile, userMessage, createDate, payDate, deliveryDate, confirmDate, uid, status ) values
+        (#{orderCode} , #{address}, #{post}, #{receiver}, #{mobile}, #{userMessage}, #{createDate}, #{payDate}, #{deliveryDate}, #{confirmDate}, #{uid}, #{status} )
+    </insert>
+
+    <delete id="delete">
+        delete from `order` where id= #{id}
+    </delete>
+
+    <select id="get" resultType="Order">
+        select * from `order` where id = #{id}
+    </select>
+
+    <update id="update" parameterType="Order">
+        update `order` set status=#{status},createDate=#{createDate},payDate=#{payDate},deliveryDate=#{deliveryDate},confirmDate=#{confirmDate}
+        where id = #{id}
+    </update>
+</mapper>
