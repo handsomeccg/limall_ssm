@@ -46,8 +46,53 @@
         border: 1px solid #CCCCCC;
         z-index: 10;
     }
-</style>
 
+    div.searchDiv{
+        background-color: #C40000;
+        width: 400px;
+        margin: 50px auto;
+        padding: 1px;
+        height: 40px;
+        display: block;
+    }
+    div.searchDiv input{
+        width: 275px;
+        border: 1px solid transparent;
+        height: 36px;
+        margin: 1px;
+        outline:none;
+    }
+    div.searchDiv button{
+        width: 110px;
+        border: 1px solid transparent;
+        background-color: #C40000;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    div.searchBelow{
+        margin-top: 3px;
+        margin-left: -20px;
+    }
+    div.searchBelow span{
+        color: #999;
+    }
+    div.searchBelow a{
+        padding: 0px 20px 0px 20px;
+        font-size: 14px;
+    }
+</style>
+<div class="searchDiv">
+    <form action="/searchResult" method="post">
+        <input type="text" name="keyword" placeholder="时尚男鞋  太阳镜">
+        <button class="searchButton" type="submit">搜索</button>
+    </form>
+    <div class="searchBelow">
+        <span><a href="/searchResult?keyword=安全座椅"> 安全座椅 </a><span>|</span></span>
+        <span><a href="/searchResult?keyword=男子运动"> 男子运动 </a><span>|</span></span>
+        <span><a href="/searchResult?keyword=牙膏杯"> 牙膏杯 </a><span>|</span></span>
+    </div>
+</div>
 <div class="workArea">
     <div class="searchProducts">
         <%--<div class="filter">

@@ -31,4 +31,8 @@
         update product set name=#{name},subTitle=#{subTitle},originalPrice=#{originalPrice},
         promotePrice=#{promotePrice},stock=#{stock} where id = #{id}
     </update>
+    <update id="updateStock" >
+        update product set stock=#{1} where id = #{0}
+    </update>
+
 </mapper>

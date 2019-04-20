@@ -46,10 +46,11 @@
     <a href="login" id="login_a">请登录</a>
     <span id="login_span"></span>
     <a href="register" id="register_a">免费注册</a>
+    <a href="quitLogin" id="quitLogin_a"></a>
     <span class="pull-right">
     <a href="home">狸猫网首页</a>
 	<a href="bought">我的订单</a>
-	<a href="cart"><span class="glyphicon glyphicon-shopping-cart redColor"></span>购物车<strong>0</strong>件</a>
+	<a href="cart"><span class="glyphicon glyphicon-shopping-cart redColor"></span>购物车</a>
 	</span>
 </nav>
 
@@ -61,6 +62,7 @@
             document.getElementById("login_a").innerText="";
             document.getElementById("login_span").innerText="亲爱的${sessionScope.user.name},你好";
             document.getElementById("register_a").innerText="";
+            document.getElementById("quitLogin_a").innerText="退出登录";
         }
 
     })

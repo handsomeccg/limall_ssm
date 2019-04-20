@@ -12,4 +12,5 @@ public interface ProductMapper {
     Product get(int id);
     void update(Product product);
     List<Product> listKeyword(String keyword);
+    void updateStock(int id,int stock);
 }

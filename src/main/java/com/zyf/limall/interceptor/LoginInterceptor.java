@@ -49,6 +49,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
                 "/test",
                 "/checkLogin",
                 "/admin",
+                "/admin_category_list",
                 "/checkname"
         };
         String uri = request.getRequestURI();

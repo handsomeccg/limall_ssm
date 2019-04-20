@@ -15,6 +15,8 @@ import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import static java.lang.System.out;
+
 @Controller
 @RequestMapping("")
 public class FrontController {
@@ -67,6 +69,7 @@ public class FrontController {
     }
     @RequestMapping("loginsuccess")
     public String loginsuccess(User user, Model model, HttpSession session){
+
         User user1 = userMapper.findUserByName(user.getName());
         UserExample example = new UserExample();
         example.or().andNameEqualTo(user.getName()).andPasswordEqualTo(user.getPassword());
@@ -76,6 +79,16 @@ public class FrontController {
             return "loginPage";
         }
         session.setAttribute("user",user1);
+        if (user.getName().equals("ccg123")){
+            return "redirect:admin_category_list";
+        }
+        else
+            return "redirect:home";
+
+    }
+    @RequestMapping("quitLogin")
+    public String quitLogin(HttpSession session){
+        session.removeAttribute("user");
         return "redirect:home";
     }
     @RequestMapping("checklogin")
@@ -153,6 +166,13 @@ public class FrontController {
         for (Orderitem orderitem: orderitems){
             orderitem.setOid(order.getId());
             orderitemMapper.updateByPrimaryKey(orderitem);
+            Product product = productService.get(orderitem.getPid());
+            if (product.getStock()-orderitem.getNumber()>0)
+                productMapper.updateStock(orderitem.getPid(),product.getStock()-orderitem.getNumber());
+            else{
+                out.print("<script language=\"javascript\">alert('库存不足');window.location.href='/home'</script>");
+                return "redirect:home";
+            }
         }
 
         return "redirect:payPage?oid=" +order.getId()+ "&total="+order.getTotal();

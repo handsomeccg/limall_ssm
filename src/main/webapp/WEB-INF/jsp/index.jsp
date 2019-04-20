@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@include file="include/top.jsp" %>
 <html>
 <head>
     <title>Title</title>
@@ -185,7 +185,7 @@
                 document.getElementById("login_a").innerText="请登录";
         }
     </script>--%>
-    <script>
+    <%--<script>
         function checklogin() {
             if("${sessionScope.user}"){
                 document.getElementById("login_a").innerText="";
@@ -194,11 +194,11 @@
             }
 
         }
-    </script>
+    </script>--%>
 </head>
-<body onload="checklogin()">
+<body>
 
-<nav class="top">
+<%--<nav class="top">
     <a href="index.html"></a>
 
     <span class="glyphicon glyphicon-home redColor">喵，欢迎来到狸猫</span>
@@ -209,7 +209,7 @@
 	<a href="bought">我的订单</a>
 	<a href="cart"><span class="glyphicon glyphicon-shopping-cart redColor"></span>购物车<strong>0</strong>件</a>
 	</span>
-</nav>
+</nav>--%>
 
 <div class="searchDiv">
     <form action="/searchResult" method="post">

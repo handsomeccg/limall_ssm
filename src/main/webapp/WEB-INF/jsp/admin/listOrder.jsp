@@ -59,7 +59,6 @@
                     <li><a href="admin_category_list" class=""><i class="lnr lnr-home"></i> <span>分类管理</span></a></li>
                     <li><a href="admin_user_list" class=""><i class="lnr lnr-user"></i> <span>用户管理</span></a></li>
                     <li><a href="admin_order" class=""><i class="lnr lnr-chart-bars"></i> <span>订单管理</span></a></li>
-                    <li><a href="#" class=""><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li>
                 </ul>
             </nav>
         </div>

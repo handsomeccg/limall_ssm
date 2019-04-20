@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="include/top.jsp" %>
 <html>
 <head>
     <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
@@ -212,8 +213,6 @@
     }
     function checkname(){
         var f=false;
-        //javascript所有的变量都是以var定义的
-        //javascript的变量属于弱类型
         //获取用户输入的用户名
         var name = document.getElementById("name").value;
         //去除字符串两端空格
